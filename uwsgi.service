@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI Emperor Service
+
+[Service]
+ExecStart=/usr/local/bin/uwsgi --master --emperor /var/www/weather
+    --die-on-term --uid ubuntu --gid www-data --logto /var/log/uwsgi/emperor.log
+
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+[Install]
+WantedBy=multi-user.target

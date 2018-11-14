@@ -1,0 +1,9 @@
+# /etc/nginx/site-avilable/flaskserver
+server{
+    listen 80;
+    server_name ec2-52-15-129-141.us-east-2.compute.amazonaws.com;
+    location / {
+        include uwsgi_params; 
+        uwsgi_pass unix:/var/www/flaskserver/flaskserver.sock;
+    }
+}
