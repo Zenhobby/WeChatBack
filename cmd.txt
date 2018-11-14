@@ -7,7 +7,9 @@ mkdir /var/www/flaskserver/
 sudo chown www-data:www-data /var/www/flaskserver
 vim /etc/systemd/system/uwsgi.service
 vim /etc/nginx/sites-available/flaskserver
-sudo ln -s /etc/nginx/sites-available/falskserver/flaskserver /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/flaskserver /etc/nginx/sites-enabled/flaskserver
 sudo nginx -t
 sudo service nginx restart
 sudo systemctl restart uwsgi.service
+
+grep server_names_hash_bucket_size /etc/nginx/nginx.conf
